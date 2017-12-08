@@ -12,6 +12,7 @@ public class HourlyEmployee extends Employee {
     public double getWage(){
         return wage;
     }
+    // 0 -168 total hours of week 
     public void setHours(int hours){
         Hours = ((hours >= 0) && (hours <=168)) ? hours:0;
     }
@@ -26,6 +27,8 @@ public class HourlyEmployee extends Employee {
         else
             return 40 * getWage() * (getHours() - 40) * getWage() * 1.5;
     }
+    // Here super.toString () calls the employee class method.
+    
     public String toString(){
         return String.format("hourly employee: %s\n%s: $%,.2f; %s:%,.2f","hours worked",getHours()
         ,super.toString(),"hourly wage",getWage());

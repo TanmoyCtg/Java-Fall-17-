@@ -19,7 +19,7 @@ public class CommissionEmployee extends Employee {
         return getCommisionRate() * getGrossSales();
     }
     public String toString(){
-        return String.format("%s: %s\n%s: $%,.2f;%s;%.2f","commision Employee",super.toString()
+        return String.format("%s: %s\n%s: $%,0.2f,%s,0.2f","commision Employee",super.toString()
         ,"gross sales",getGrossSales(),"commision rate",getCommisionRate());
     }
 }

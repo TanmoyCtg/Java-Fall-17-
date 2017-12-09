@@ -18,7 +18,7 @@ public class SalariedEmployee extends Employee{
        return getWeeklySalary();
    }
    public String toString(){
-       return String.format("salaried employee: %s\n%s: $%,2f",super.toString(),"weekly salary",getWeeklySalary());
+       return String.format("salaried employee: %s\n%s: $% .2f",super.toString(),"weekly salary",getWeeklySalary());
    } //
 
 }

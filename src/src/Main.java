@@ -1,0 +1,12 @@
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        ButtonFrame buttonFrame = new ButtonFrame(); // create ButtonFrame
+        buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        buttonFrame.setSize(375,310);
+        buttonFrame.setVisible(true); // display frame
+    }
+}

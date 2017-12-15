@@ -3,9 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Additon{
-
     public static void main(String[] args){
-        //Additon a1 =new Additon();
+            //Additon a1 =new Additon();
+
+
         String firstNumber = JOptionPane.showInputDialog("Enter first integer: ");
         String secondNumber = JOptionPane.showInputDialog("Enter second integer: ");
 
@@ -17,8 +18,6 @@ public class Additon{
         JOptionPane.showMessageDialog(null,"The sum is "+sum);
 //        a1.setSize(400,300);
 //        a1.setVisible(true);
-
-
 
 
 

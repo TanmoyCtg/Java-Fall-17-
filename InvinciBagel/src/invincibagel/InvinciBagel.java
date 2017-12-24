@@ -42,18 +42,15 @@ public class InvinciBagel extends Application {
         primaryStage.setTitle("InvinciBagel");
         primaryStage.setScene(scene);
         primaryStage.show();
-        gameButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                splashScreenBackplate.setVisible(false);
-                splashScreenTextArea.setVisible(false);
-            }
+        gameButton.setOnAction(event -> {
+            splashScreenBackplate.setVisible(false);
+            splashScreenTextArea.setVisible(false);
         });
         helpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //splashScreenBackplate.setVisible(true);
-                //splashScreenTextArea.setVisible(true);
+                splashScreenBackplate.setVisible(true);
+                splashScreenTextArea.setVisible(true);
                 splashScreenTextArea.setImage(instructionLayer);
             }
         });

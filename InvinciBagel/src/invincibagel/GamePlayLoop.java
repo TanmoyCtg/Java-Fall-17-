@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 public class GamePlayLoop extends AnimationTimer {
     Pos location;
     public void handle(long now){
+        /*
         location = InvinciBagel.buttonContainer.getAlignment();
         if(location == Pos.BOTTOM_LEFT){
             InvinciBagel.buttonContainer.setAlignment(Pos.BOTTOM_RIGHT);
@@ -16,6 +17,7 @@ public class GamePlayLoop extends AnimationTimer {
         } else if(location == Pos.TOP_LEFT){
             InvinciBagel.buttonContainer.setAlignment(Pos.BOTTOM_LEFT);
         }
+        */
     }
     public void start(){
         super.start();

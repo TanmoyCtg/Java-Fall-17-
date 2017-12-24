@@ -14,8 +14,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -23,13 +25,16 @@ import javafx.stage.Stage;
  * @author chowd
  */
 public class InvinciBagel extends Application {
+    static final double WIDTH = 640, HEIGHT = 400;
+    boolean up,down,left,right;
     Scene scene;
     StackPane root;
     Image splashScreen, instructionLayer, legalLayer, scoreLayer;
     ImageView splashScreenBackplate, splashScreenTextArea;
     Button gameButton, helpButton, scoreButton, legalButton;
-    HBox buttonContainer;
+    static HBox buttonContainer;
     Insets buttonContainerPadding;
+    GamePlayLoop gamePlayLoop;
     @Override
     public void start(Stage primaryStage) {
         createSplashScreenNodes();
@@ -40,18 +45,23 @@ public class InvinciBagel extends Application {
         gameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                splashScreenBackplate.setVisible(false);
+                splashScreenTextArea.setVisible(false);
             }
         });
         helpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                //splashScreenBackplate.setVisible(true);
+                //splashScreenTextArea.setVisible(true);
                 splashScreenTextArea.setImage(instructionLayer);
             }
         });
         scoreButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                splashScreenBackplate.setVisible(true);
+                splashScreenTextArea.setVisible(true);
                 splashScreenTextArea.setImage(scoreLayer);
             }
         });
@@ -61,6 +71,8 @@ public class InvinciBagel extends Application {
                 splashScreenTextArea.setImage(legalLayer);
             }
         });
+        gamePlayLoop = new GamePlayLoop();
+        gamePlayLoop.start();
     }
 
     /**
@@ -71,7 +83,34 @@ public class InvinciBagel extends Application {
     }
     private void createSplashScreenNodes(){
         root = new StackPane();
-        scene = new Scene(root,640,400);
+
+        scene = new Scene(root,WIDTH,HEIGHT, Color.WHITE);
+
+        scene.setOnKeyPressed(event -> {
+            switch (event.getCode()){
+                case UP: up = true; break;
+                case DOWN: down = true; break;
+                case LEFT: left = true;break;
+                case RIGHT: right = true;break;
+                case W: up = true;break;
+                case S: down = true;break;
+                case A: left = true;break;
+                case D: right = true;break;
+            }
+        });
+        scene.setOnKeyPressed(event -> {
+            switch (event.getCode()){
+                case UP: up = false;break;
+                case DOWN: down = false;break;
+                case LEFT: left = false;break;
+                case RIGHT:right = false;break;
+                case W: up = false;break;
+                case S: down = false;break;
+                case A: left = false;break;
+                case D:right = false;break;
+            }
+        });
+
         buttonContainer = new HBox(12);
         buttonContainer.setAlignment(Pos.BOTTOM_LEFT);
         buttonContainerPadding = new Insets(0,0,10,16);
